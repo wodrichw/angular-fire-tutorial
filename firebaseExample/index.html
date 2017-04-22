@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test</title>
+  </head>
+  <body>
+    <h1 id="head-title"></h1>
+    <p>Text should be above me</p>
+  </body>
+
+  <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyC8GCHbA9skMtkNxFlODEvw-HExWt72D-k",
+      authDomain: "tutorial-db535.firebaseapp.com",
+      databaseURL: "https://tutorial-db535.firebaseio.com",
+      projectId: "tutorial-db535",
+      storageBucket: "tutorial-db535.appspot.com",
+      messagingSenderId: "491421547647"
+    };
+    firebase.initializeApp(config);
+
+    var headVar = document.getElementById('head-title');
+
+    var dbRef = firebase.database().ref().child("text");
+    dbRef.set("TEEEESTTIING");
+
+    dbRef.on('value', snap => headVar.innerText = snap.val());
+
+
+
+  </script>
+</html>
+<table>
+
+</table>
