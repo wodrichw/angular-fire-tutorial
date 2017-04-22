@@ -25,7 +25,7 @@
     var headVar = document.getElementById('head-title');
 
     var dbRef = firebase.database().ref().child("text");
-    dbRef.set("TEEEESTTIING");
+    dbRef.set("heyoooo");
 
     dbRef.on('value', snap => headVar.innerText = snap.val());
 
