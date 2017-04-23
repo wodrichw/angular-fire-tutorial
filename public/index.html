@@ -29,41 +29,29 @@
         body { border-top: 16px solid #ffa100; }
       }
     </style>
+    <!-- Angular -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+    <!-- AngularFire -->
+    <script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
   </head>
   <body>
-    <div id="message">
-      <h2>Welcome</h2>
-      <h1>Firebase Hosting Setup Complete</h1>
-      <p>You're seeing this because you've successfully setup Firebase Hosting. Now it's time to go build something extraordinary!</p>
-      <a target="_blank" href="https://firebase.google.com/docs/hosting/">Open Hosting Documentation</a>
-    </div>
-    <p id="load">Firebase SDK Loading&hellip;</p>
+    <div ng-app="myApp" ng-controller="myCtrl">
 
-    <h1 id="head-id"></h1>
+    First Name: <input type="text" ng-model="firstName"><br>
+    Last Name: <input type="text" ng-model="lastName"><br>
+    <br>
+    Full Name: {{firstName + " " + lastName}}
+
+    </div>
+    <script src="app.js"></script>
+
 
 
 
     <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
-    <script>
-      // Initialize Firebase
-      var config = {
-        apiKey: "AIzaSyC8GCHbA9skMtkNxFlODEvw-HExWt72D-k",
-        authDomain: "tutorial-db535.firebaseapp.com",
-        databaseURL: "https://tutorial-db535.firebaseio.com",
-        projectId: "tutorial-db535",
-        storageBucket: "tutorial-db535.appspot.com",
-        messagingSenderId: "491421547647"
-      };
-      firebase.initializeApp(config);
 
-
-      var headVar = document.getElementById("head-id");
-      var dbRef = firebase.database().ref().child("text");
-      dbRef.set("TEEEESTTIING");
-
-      dbRef.on('value', snap => headVar.innerText = snap.val());
-      
-    </script>
 
     <script>
       document.addEventListener('DOMContentLoaded', function() {
