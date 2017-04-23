@@ -15,18 +15,20 @@ var app = angular.module('myApp', ['firebase']);
 
 app.controller("myCtrl", ["$scope", "$firebaseArray",
   function($scope, $firebaseArray){
+    var ref = firebase.database().ref().child("text");
+    ref.set("");
+    $scope.firstName = "Delerious";
+    $scope.lastName= "Delerious";
 
-    var headVar = document.getElementById('head-title');
+    var ref2 = firebase.database().ref().child("firstName");
+    ref2.set($scope.firstName);
 
-    var dbRef = firebase.database().ref().child("text");
-  /*
-    dbRef.set("TEEEESTTIING");
+    var ref3 = firebase.database().ref().child("lastName");
+    ref3.set($scope.lastName);
 
-    dbRef.on('value', snap => headVar.innerText = snap.val());
-  */
-    //var sync = $firebaseArray(ref);
-    $scope.firstName= "John";
-    $scope.lastName= "Doe";
+    //ref2.on('value', snap => $scope.headTitle.innerText = snap.val());
+    //ref2.on('value', snap => hTitle.innerText = snap.val());
+    //ref3.on('value', snap => hTitle.innerText = snap.val());
   }
 
 ]);
